@@ -11,9 +11,9 @@ window.addEventListener("DOMContentLoaded", () => {
   fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`)
     .then((response) => response.json()).then(data => {
 
-        data.results.forEach(item => {
+        data.results.forEach(pokemon => {
           let listItem  =  document.createElement('li');
-          listItem.innerText = item.name;
+          listItem.innerText = pokemon.name;
           ul.appendChild(listItem);
         });
         
