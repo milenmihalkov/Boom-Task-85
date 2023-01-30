@@ -2,24 +2,21 @@ import "../scss/app.scss";
 
 window.addEventListener("DOMContentLoaded", () => {
   // This block will be executed once the page is loaded and ready
-  const apiUrl  = 'https://pokeapi.co/api/v2/pokemon';
+  const pokemonCount = 10;
+  const apiUrl  = `https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`;
   const ul      =  document.querySelector("ul");
   
   
-async function getData(){
 
-}
   fetch(apiUrl)
-    .then(response => {
+    .then((response) => response.json()).then(data => {
 
-        let data = response.json();
-
-        for(let i = 0; i<data.length; i++){
+        data.results.forEach(item => {
           let listItem  =  document.createElement('li');
+          listItem.innerText = item.name;
           ul.appendChild(listItem);
-        }
-        console.log(data);
-
+        });
+        
     })
     .catch(error => {
         console.log(error);
