@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
   
 
-  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${pokemonCount}`)
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${pokemonCount}`)
     .then((response) => response.json()).then(data => {
 
         data.results.forEach(pokemon => {
